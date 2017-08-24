@@ -26,3 +26,28 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## ng generate component help
+    component <name> <options...>
+      aliases: c
+      --flat (Boolean) Flag to indicate if a dir is created.
+      --inline-template (Boolean) Specifies if the template will be in the ts file.
+        aliases: -it
+      --inline-style (Boolean) Specifies if the style will be in the ts file.
+        aliases: -is
+      --prefix (String) (Default: null) Specifies whether to use the prefix.
+      --spec (Boolean) Specifies if a spec file is generated.
+      --view-encapsulation (String) Specifies the view encapsulation strategy.
+        aliases: -ve <value>
+      --change-detection (String) Specifies the change detection strategy.
+        aliases: -cd <value>
+      --skip-import (Boolean) (Default: false) Allows for skipping the module import.
+      --module (String) Allows specification of the declaring module.
+        aliases: -m <value>
+      --export (Boolean) (Default: false) Specifies if declaring module exports the component.
+      --app (String) Specifies app name to use.
+        aliases: -a <value>
+
+    minimum:  
+    ng generate c --inline-template --inline-style alert-detail

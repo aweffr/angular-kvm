@@ -1,0 +1,13 @@
+<ul class="alertHistList">
+  <div *ngFor="let alertDetail of alertHistList">
+    <div class="col-lg-6 col-md-12">
+      <div class="panel panel-default panel-heading" (click)="showDetail(alertDetail)" style="background-color:cadetblue">
+        <h3>
+          <button class="btn mybutton">{{alertDetail.hostIp}} {{alertDetail.time}}</button>
+        </h3>
+      </div>
+    </div>
+  </div>
+</ul>
+<p>
+  <app-alert-detail [alertDetail]="selectedAlertDetail"></app-alert-detail>

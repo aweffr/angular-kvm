@@ -1,0 +1,5 @@
+<ul class="hostList" style="max-height:400px; overflow:auto">
+  <li *ngFor="let host of hostList">
+    <a [routerLink]="['/hostDetail', host]">{{host}}</a>
+  </li>
+</ul>
