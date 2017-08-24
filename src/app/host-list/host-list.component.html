@@ -1,5 +1,16 @@
-<ul class="hostList" style="max-height:400px; overflow:auto">
-  <li *ngFor="let host of hostList">
-    <a [routerLink]="['/hostDetail', host]">{{host}}</a>
+<!-- <ul class="hostDetailList" style="max-height:400px; overflow:auto">
+  <li *ngFor="let hostDetail of hostDetailList">
+    <a [routerLink]="['/hostDetail', hostDetail.hostIp]">{{hostDetail.hostIp}}</a>
   </li>
-</ul>
+</ul> -->
+
+<div>
+  <ngx-datatable class="host-table" [rows]="rows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
+    [limit]="10" [sorts]="defaultSorter">
+  </ngx-datatable>
+
+  <ng-template #editTmpl let-row="row" let-value="value">
+      <span *ngIf="value === 0" class="safe" title="0">0</span>
+      <span *ngIf="value !== 0" class="danger" title="value">{{value}}</span>
+  </ng-template>
+</div>

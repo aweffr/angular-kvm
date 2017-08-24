@@ -2,3 +2,14 @@ ul {
     max-height:400px;
     overflow:auto;
 }
+
+.safe {
+    background-color: #CDC2C2;
+    flex: 1;
+}
+
+.danger {
+    background: #E40808;
+    flex: 1;
+    float: left;
+}

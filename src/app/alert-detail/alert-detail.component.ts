@@ -36,29 +36,3 @@ export class AlertDetailComponent implements OnInit {
   }
 
 }
-
-
-`
-<table class='table' *ngIf="hostDetail">
-<tr>
-  <td>IP</td>
-  <td>{{hostDetail.hostIp}}</td>
-</tr>
-<tr>
-  <td>CPU负载</td>
-  <td>{{hostDetail.cpuLoad}}</td>
-</tr>
-<tr>
-  <td>内存使用情况</td>
-  <td>{{hostDetail.memoryDisplay}}</td>
-</tr>
-<tr>
-  <td>磁盘负载</td>
-  <td>{{hostDetail.diskUtil}}</td>
-</tr>
-<tr>
-  <td>网络流量</td>
-  <td>{{hostDetail.networkDisplay}}</td>
-</tr>
-</table>
-`

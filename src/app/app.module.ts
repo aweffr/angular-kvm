@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
@@ -15,6 +17,8 @@ import { HostListComponent } from './host-list/host-list.component';
 import { AlertHistListComponent } from './alert-hist-list/alert-hist-list.component';
 import { AlertDetailComponent } from './alert-detail/alert-detail.component'
 
+import { AppRoutingModule } from './app-routing.module'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,30 +31,9 @@ import { AlertDetailComponent } from './alert-detail/alert-detail.component'
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        redirectTo: '/alertList',
-        pathMatch: 'full'
-      },
-      {
-        path: 'alertList',
-        component: AlertListComponent
-      },
-      {
-        path: 'hostList',
-        component: HostListComponent
-      },
-      {
-        path: 'hostDetail/:host',
-        component: HostDetailComponent        
-      },
-      {
-        path: 'alertHistList',
-        component: AlertHistListComponent
-      }
-    ]),
-    HttpModule
+    AppRoutingModule,
+    HttpModule,
+    NgxDatatableModule
   ],
   providers: [
     GetAlertListService,
