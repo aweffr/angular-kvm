@@ -1,3 +1,5 @@
+import {AlertDetail} from './alert-detail';
+
 export class HostDetail {
     hostId: number;
     hostIp: string;
@@ -9,4 +11,5 @@ export class HostDetail {
     networkTotal: number;
     icmpPingDisplay: string;
     icmpPingDateTime: string;
+    alertList: AlertDetail[];
 }

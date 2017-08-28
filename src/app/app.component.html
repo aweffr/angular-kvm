@@ -1,22 +1,21 @@
 <div style="text-align:center">
   <div class="page-header">
     <h1>宿主机监控</h1>
-    <h6>后台刷新时间: {{ indexInfo.queryTime }} </h6>
+    <h6 *ngIf="indexInfo">后台刷新时间: {{ indexInfo.queryTime }} </h6>
   </div>
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-lg-3 col-md-6 col-sm-12">
-      <p>目前监控: {{ indexInfo.kvmNumbers }}</p>
-      <p>警报中: {{ indexInfo.alertNum }}</p>
-      <p>一小时内共警报: {{ indexInfo.alertNumInOneHour }}</p>
+    <div class="col-lg-3 col-md-3 col-sm-12">
+      <p *ngIf="indexInfo">目前监控: {{ indexInfo.kvmNumbers }}</p>
+      <p *ngIf="indexInfo">警报中: {{ indexInfo.alertNum }}</p>
+      <p *ngIf="indexInfo">一小时内共警报: {{ indexInfo.alertNumInOneHour }}</p>
       <p>
-        <a routerLink="/alertList">警告</a>
-        <a routerLink="/hostList">宿主机列表</a>
+        <a routerLink="/hostList">宿主机监控</a>
       </p>
       <p><a routerLink="/alertHistList">过去24小时警告</a></p>
     </div>
-    <div class="col-lg-9 col-md-6 col-sm-12">
+    <div class="col-lg-9 col-md-9 col-sm-12">
       <router-outlet></router-outlet>
     </div>
   </div>

@@ -4,13 +4,26 @@
   </li>
 </ul> -->
 
-<div>
-  <ngx-datatable class="host-table" [rows]="rows" [columnMode]="'force'" [columns]="columns" [headerHeight]="50" [footerHeight]="50"
-    [limit]="10" [sorts]="defaultSorter">
-  </ngx-datatable>
+<div class="hostDetailList">
+  <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let hostDetail of hostDetailList">
 
-  <ng-template #editTmpl let-row="row" let-value="value">
-      <span *ngIf="value === 0" class="safe" title="0">0</span>
-      <span *ngIf="value !== 0" class="danger" title="value">{{value}}</span>
-  </ng-template>
+    <div *ngIf="hostDetail.alertList.length > 0">
+      <div class="panel panel-danger hostUnit" (click)="showDetail(hostDetail)">
+        <div class="panel-heading">
+          <h4>{{hostDetail.hostIp}}</h4>
+          <p>{{hostDetail.alertList.length}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="hostDetail.alertList.length === 0">
+      <div class="panel panel-info hostUnit" (click)="showDetail(hostDetail)">
+        <div class="panel-heading">
+          <h4>{{hostDetail.hostIp}}</h4>
+          <p>{{hostDetail.alertList.length}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
@@ -34,7 +36,8 @@ import { AppRoutingModule } from './app-routing.module'
     FormsModule,
     AppRoutingModule,
     HttpModule,
-    NgxDatatableModule
+    NgxDatatableModule,
+    NgbModule
   ],
   providers: [
     GetAlertListService,

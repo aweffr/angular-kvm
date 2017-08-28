@@ -15,29 +15,13 @@ export class HostListComponent implements OnInit {
   hostList: string[];
   hostDetailList: HostDetail[];
 
-  columns = [];
-  rows = [];
-  defaultSorter = [{ prop: 'alertNum', dir: 'desc' }];
-
-
   constructor(private getHostListService: GetHostListService) { }
 
   ngOnInit() {
     this.getHostListService.getHostList()
       .then(hostList => this.hostList = hostList);
-    this.columns = [
-      { name: '节点IP', prop: 'hostIp', sortable: true, draggable: false, resizeable: false },
-      { name: 'Ping', prop: 'icmpPingDisplay', sortable: true, minWidth: 200, draggable: false, resizeable: false },
-      { name: '报警数', prop: 'alertNum', sortable: true, draggable: false, resizeable: false, cellTemplate: this.editTmpl}
-    ];
     this.getHostListService.getHostDetailList()
-      .then(hostDetailList => this.hostDetailList = hostDetailList)
-      .then(hostDetailList => {
-        for (let hostDetail of hostDetailList) {
-          let temp = { hostIp: hostDetail.hostIp, icmpPingDisplay: hostDetail.icmpPingDisplay, alertNum: 2 };
-          this.rows.push(temp);
-        }
-      });
+      .then(hostDetailList => this.hostDetailList = hostDetailList);
     console.log(this.editTmpl);
   }
 
