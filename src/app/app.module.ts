@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 
 import { GetHostListService } from './get-host-list.service'
 import { GetAlertListService } from './get-alert-list.service';
+import { GetIndexInfoService } from './get-index-info.service'
 import { AlertListComponent } from './alert-list/alert-list.component';
 import { HostDetailComponent } from './host-detail/host-detail.component';
 import { HostListComponent } from './host-list/host-list.component';
@@ -37,7 +38,8 @@ import { AppRoutingModule } from './app-routing.module'
   ],
   providers: [
     GetAlertListService,
-    GetHostListService
+    GetHostListService,
+    GetIndexInfoService
   ],
   bootstrap: [AppComponent]
 })
