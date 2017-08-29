@@ -11,9 +11,10 @@
       <p *ngIf="indexInfo">警报中: {{ indexInfo.alertNum }}</p>
       <p *ngIf="indexInfo">一小时内共警报: {{ indexInfo.alertNumInOneHour }}</p>
       <p>
-        <a routerLink="/hostList">宿主机监控</a>
+        <button class="btn btn-default" routerLink="/alertList">只显示告警中主机</button>
+        <button class="btn btn-default" routerLink="/hostList">显示全部主机</button>
       </p>
-      <p><a routerLink="/alertHistList">过去24小时警告</a></p>
+      <p><a routerLink="/alertHistList">24小时警告</a></p>
     </div>
     <div class="col-lg-9 col-md-9 col-sm-12">
       <router-outlet></router-outlet>

@@ -8,19 +8,30 @@
   <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let hostDetail of hostDetailList">
 
     <div *ngIf="hostDetail.alertList.length > 0">
-      <div class="panel panel-danger hostUnit" (click)="showDetail(hostDetail)">
+      <div class="panel panel-danger hostUnit">
         <div class="panel-heading">
           <h4>{{hostDetail.hostIp}}</h4>
-          <p>{{hostDetail.alertList.length}}</p>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-12 text-center" style="height:36px;">告警中: {{ hostDetail.alertList.length }}</div>
+          <div class="col-md-12 text-center" style="height:36px;">抄送: {{ hostDetail.alertList.length }}</div>
+          <div class="col-md-12 text-center" style="height:36px;">已被告警中心暂停: {{ hostDetail.alertList.length }}</div>
+          <div class="col-md-12 text-center" style="height:36px;">
+            <button class="btn btn-default" routerLink="/hostDetail/{{hostDetail.hostIp}}">详情查看</button>
+          </div>
         </div>
       </div>
     </div>
 
     <div *ngIf="hostDetail.alertList.length === 0">
-      <div class="panel panel-info hostUnit" (click)="showDetail(hostDetail)">
+      <div class="panel panel-info hostUnit">
         <div class="panel-heading">
           <h4>{{hostDetail.hostIp}}</h4>
-          <p>{{hostDetail.alertList.length}}</p>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-12 text-center" style="height:36px; border: 1px solid whitesmoke;">
+            <button class="btn btn-default" routerLink="/hostDetail/{{hostDetail.hostIp}}">详情查看</button>
+          </div>
         </div>
       </div>
     </div>

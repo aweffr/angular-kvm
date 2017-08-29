@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
 import { HostDetail } from '../host-detail';
 import { GetHostListService } from '../get-host-list.service';
@@ -12,7 +12,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./host-detail.component.css']
 })
 export class HostDetailComponent implements OnInit {
-  hostDetail: HostDetail;
+  @Input() hostDetail: HostDetail;
 
   constructor(
     private getHostListService: GetHostListService,

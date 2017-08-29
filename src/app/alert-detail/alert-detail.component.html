@@ -1,0 +1,23 @@
+<div class="col-md-12" *ngIf="alertDetail" [class.expired]="alertDetail.expired" [class.indanger]="!alertDetail.expired">
+    <div class="row">
+        <div class="col-md-10 col-xs-12" style="min-height: 150px;">
+            <h4>
+                <td>{{alertDetail.time}}</h4>
+            <p>
+                联系人 {{alertDetail.sendto}}
+            </p>
+            <p>
+                信息 {{alertDetail.subject}}
+            </p>
+            <p *ngIf="alertDetail.expired">
+                已过期
+            </p>
+            <p *ngIf="!alertDetail.expired">
+                警报中
+            </p>
+        </div>
+        <div class="col-md-2 col-xs-12 text-center">
+            <button class="btn btn-default">忽略该警告</button>
+        </div>
+    </div>
+</div>

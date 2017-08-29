@@ -37,7 +37,7 @@ import { AppRoutingModule } from './app-routing.module'
     AppRoutingModule,
     HttpModule,
     NgxDatatableModule,
-    NgbModule
+    NgbModule.forRoot()
   ],
   providers: [
     GetAlertListService,

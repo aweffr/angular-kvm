@@ -12,7 +12,7 @@ import { AlertDetailComponent } from './alert-detail/alert-detail.component'
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/alertList',
+        redirectTo: '/hostList',
         pathMatch: 'full'
     },
     {
