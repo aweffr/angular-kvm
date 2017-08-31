@@ -13,14 +13,13 @@ export class AppComponent implements OnInit {
 
   constructor(private getIndexInfoService: GetIndexInfoService) { }
 
-  update(): void {
-    this.getIndexInfoService.getIndexInfo()
-      .then(indexInfo => this.indexInfo = indexInfo);
-  }
 
   ngOnInit() {
-    this.update();
-    setInterval(this.update, 60 * 1000);
+    this.getIndexInfoService.getIndexInfo().then(indexInfo => this.indexInfo = indexInfo);
+    setInterval(() => {
+      this.getIndexInfoService.getIndexInfo()
+        .then(indexInfo => this.indexInfo = indexInfo);
+    }, 15 * 1000);
   }
 
 }
