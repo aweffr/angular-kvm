@@ -25,8 +25,10 @@ export class HostListComponent implements OnInit {
   constructor(private getHostListService: GetHostListService, private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.hostGeneralList = [];
-    this.getHostListService.getHostList()
-      .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
+    setInterval(() => {
+      this.hostGeneralList = [];
+      this.getHostListService.getHostList()
+        .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
+    }, 1000 * 60);
   }
 }
