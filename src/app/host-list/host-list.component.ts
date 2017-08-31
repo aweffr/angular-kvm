@@ -32,6 +32,6 @@ export class HostListComponent implements OnInit {
     setInterval(() => {
       this.getHostListService.getHostList()
         .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
-    }, 60 * 1000);
+    }, 15 * 1000);
   }
 }
