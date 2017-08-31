@@ -30,6 +30,9 @@ export class HostListComponent implements OnInit {
       .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
 
     setInterval(() => {
+      if (this.getHostListService === (undefined) || this.getHostListService === (null)) {
+        console.log("Exception in host-list.component!");
+      }
       this.getHostListService.getHostList()
         .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
     }, 15 * 1000);

@@ -28,6 +28,9 @@ export class AlertListComponent implements OnInit {
 
     setInterval(() => {
       console.log("update!");
+      if (this.getHostListService === (undefined) || this.getHostListService === (null)) {
+        console.log("Exception in alert-list.component!");
+      }
       this.getHostListService.getHostList()
         .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
     }, 15 * 1000);
