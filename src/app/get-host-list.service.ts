@@ -8,9 +8,9 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class GetHostListService {
-  private hostListUrl = "http://172.16.15.146:8080/api/getHostList"
-  private hostDetailUrl = 'http://172.16.15.146:8080/api/getHostDetail'
-  private hostListDetailUrl = 'http://172.16.15.146:8080/api/getData'
+  private hostListUrl = "http://10.205.208.47:8080/api/getHostList"
+  private hostDetailUrl = 'http://10.205.208.47:8080/api/getHostDetail'
+  private hostListDetailUrl = 'http://10.205.208.47:8080/api/getData'
 
   constructor(private http: Http) { }
 

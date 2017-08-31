@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UserService {
-  private toggleAlertUrl = "http://172.16.15.146:8080/api/dismissAlert"
+  private toggleAlertUrl = "http://10.205.208.47:8080/api/dismissAlert"
   constructor(private http: Http) { }
 
   dismissAlert(alertId: number): Promise<number> {

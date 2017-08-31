@@ -5,7 +5,7 @@ import { IndexInfo } from './index-info'
 
 @Injectable()
 export class GetIndexInfoService {
-  private indexInfoUrl = "http://172.16.15.146:8080/api/getIndexInfo"
+  private indexInfoUrl = "http://10.205.208.47:8080/api/getIndexInfo"
   constructor(private http: Http) { }
 
   getIndexInfo(): Promise<IndexInfo> {

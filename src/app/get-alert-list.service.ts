@@ -6,8 +6,8 @@ import { AlertDetail } from './alert-detail';
 @Injectable()
 export class GetAlertListService {
 
-  private alertListUrl = "http://172.16.15.146:8080/api/getAlertList";
-  private alertHistListUrl = "http://172.16.15.146:8080/api/getAlertHistory?length=24";
+  private alertListUrl = "http://10.205.208.47:8080/api/getAlertList";
+  private alertHistListUrl = "http://10.205.208.47:8080/api/getAlertHistory?length=24";
 
   constructor(private http: Http) { }
 
