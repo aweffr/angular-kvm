@@ -18,14 +18,19 @@ export class AlertListComponent implements OnInit {
   ) { }
 
   update(): void {
-    console.log("update!");
     this.getHostListService.getHostList()
       .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
   }
 
   ngOnInit() {
+
     this.update();
-    setInterval(this.update, 60 * 1000);
+    
+    setInterval(() => {
+      console.log("update!");
+      this.getHostListService.getHostList()
+        .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
+    }, 60 * 1000);
   }
 
 }

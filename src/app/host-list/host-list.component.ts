@@ -28,5 +28,10 @@ export class HostListComponent implements OnInit {
     this.hostGeneralList = [];
     this.getHostListService.getHostList()
       .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
+
+    setInterval(() => {
+      this.getHostListService.getHostList()
+        .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
+    }, 60 * 1000);
   }
 }
