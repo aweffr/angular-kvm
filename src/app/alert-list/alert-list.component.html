@@ -1,14 +1,23 @@
-<ul class="alertList">
-  <div *ngFor="let alertDetail of alertList">
-    <div class="col-lg-6 col-md-12">
-      <div class="panel panel-default panel-heading" (click)="showDetail(alertDetail)" style="background-color:cadetblue">
-        <h3>
-          <button class="btn mybutton">{{alertDetail.hostIp}} {{alertDetail.time}}</button>
-        </h3>
+<div class="hostDetailList">
+  <div *ngFor="let hostGeneral of hostGeneralList">
+    <div class="col-lg-3 col-md-4 col-sm-6">
+      
+      <div *ngIf="hostGeneral !== null && hostGeneral.total > 0 && hostGeneral.total !== hostGeneral.disabledByUserCnt">
+        <div class="panel panel-danger hostUnit">
+          <div class="panel-heading">
+            <h4>{{hostGeneral.hostIp}}</h4>
+          </div>
+          <div class="panel-body">
+            <div class="col-md-12 text-center" style="height:36px;">告警中: {{ hostGeneral.alertingCnt }}</div>
+            <div class="col-md-12 text-center" style="height:36px;">已过期: {{ hostGeneral.expiredCnt }}</div>
+            <div class="col-md-12 text-center" style="height:36px;">已被告警中心暂停: {{ hostGeneral.disabledByCenterCnt }}</div>
+            <div class="col-md-12 text-center" style="height:36px;">
+              <button class="btn btn-default" routerLink="/hostDetail/{{hostGeneral.hostIp}}">详情查看</button>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
-</ul>
-
-<p></p>
-<app-alert-detail [alertDetail]="selectedAlertDetail"></app-alert-detail>
+</div>

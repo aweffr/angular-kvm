@@ -31,12 +31,13 @@
       <td>{{hostDetail.networkDisplay}}</td>
     </tr>
   </table>
+
+
+  <button class="btn btn-default" (click)="goBack()">后退</button>
+
   <div class="hostDetail">
     <div *ngFor="let alert of hostDetail.alertList">
       <app-alert-detail [alertDetail]="alert"></app-alert-detail>
     </div>
   </div>
 </div>
-
-
-<button class="btn btn-default" (click)="goBack()">后退</button>

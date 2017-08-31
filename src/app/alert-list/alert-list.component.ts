@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GetAlertListService } from '../get-alert-list.service';
+import { GetHostListService } from '../get-host-list.service';
 import { AlertDetail } from '../alert-detail';
+import { HostGeneral } from '../host-general';
 
 @Component({
   selector: 'app-alert-list',
@@ -8,20 +10,22 @@ import { AlertDetail } from '../alert-detail';
   styleUrls: ['./alert-list.component.css']
 })
 export class AlertListComponent implements OnInit {
-  selectedAlertDetail: AlertDetail;
-  @Input() alertList: AlertDetail[];
+  hostGeneralList: HostGeneral[];
+
 
   constructor(
-    private getAlertListService: GetAlertListService
+    private getHostListService: GetHostListService
   ) { }
 
-  ngOnInit() {
-    this.getAlertListService.getAlertList()
-      .then(alertList => this.alertList = alertList);
+  update(): void {
+    console.log("update!");
+    this.getHostListService.getHostList()
+      .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
   }
 
-  showDetail(alertDetail) {
-    this.selectedAlertDetail = alertDetail;
+  ngOnInit() {
+    this.update();
+    setInterval(this.update, 60 * 1000);
   }
 
 }

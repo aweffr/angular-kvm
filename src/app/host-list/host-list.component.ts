@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HostDetail } from '../host-detail';
 import { GetHostListService } from '../get-host-list.service';
 
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { HostGeneral } from '../host-general';
+
+import { NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-host-list',
@@ -14,7 +17,7 @@ export class HostListComponent implements OnInit {
   // @ViewChild('hdrTpl') hdrTpl: TemplateRef<any>;
   // @ViewChild('editTmpl') editTmpl: TemplateRef<any>;
 
-  hostList: string[];
+  hostGeneralList: HostGeneral[];
   hostDetailList: HostDetail[];
 
   closeResult: string;
@@ -22,9 +25,8 @@ export class HostListComponent implements OnInit {
   constructor(private getHostListService: GetHostListService, private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.hostGeneralList = [];
     this.getHostListService.getHostList()
-      .then(hostList => this.hostList = hostList);
-    this.getHostListService.getHostDetailList()
-      .then(hostDetailList => this.hostDetailList = hostDetailList);
+      .then(hostGeneralList => this.hostGeneralList = hostGeneralList);
   }
 }

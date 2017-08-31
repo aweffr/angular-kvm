@@ -1,36 +1,30 @@
-<!-- <ul class="hostDetailList" style="max-height:400px; overflow:auto">
-  <li *ngFor="let hostDetail of hostDetailList">
-    <a [routerLink]="['/hostDetail', hostDetail.hostIp]">{{hostDetail.hostIp}}</a>
-  </li>
-</ul> -->
+<div class="hostGeneralList">
+  <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let hostGeneral of hostGeneralList">
 
-<div class="hostDetailList">
-  <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let hostDetail of hostDetailList">
-
-    <div *ngIf="hostDetail.alertList.length > 0">
+    <div *ngIf="hostGeneral !== null && hostGeneral.total > 0 && hostGeneral.total !== hostGeneral.disabledByUserCnt">
       <div class="panel panel-danger hostUnit">
         <div class="panel-heading">
-          <h4>{{hostDetail.hostIp}}</h4>
+          <h4>{{hostGeneral.hostIp}}</h4>
         </div>
         <div class="panel-body">
-          <div class="col-md-12 text-center" style="height:36px;">告警中: {{ hostDetail.alertList.length }}</div>
-          <div class="col-md-12 text-center" style="height:36px;">抄送: {{ hostDetail.alertList.length }}</div>
-          <div class="col-md-12 text-center" style="height:36px;">已被告警中心暂停: {{ hostDetail.alertList.length }}</div>
+          <div class="col-md-12 text-center" style="height:36px;">告警中: {{ hostGeneral.alertingCnt }}</div>
+          <div class="col-md-12 text-center" style="height:36px;">已过期: {{ hostGeneral.expiredCnt }}</div>
+          <div class="col-md-12 text-center" style="height:36px;">已被告警中心暂停: {{ hostGeneral.disabledByCenterCnt }}</div>
           <div class="col-md-12 text-center" style="height:36px;">
-            <button class="btn btn-default" routerLink="/hostDetail/{{hostDetail.hostIp}}">详情查看</button>
+            <button class="btn btn-default" routerLink="/hostDetail/{{hostGeneral.hostIp}}">详情查看</button>
           </div>
         </div>
       </div>
     </div>
 
-    <div *ngIf="hostDetail.alertList.length === 0">
+    <div *ngIf="hostGeneral !== null && hostGeneral.total === 0 || hostGeneral.total === hostGeneral.disabledByUserCnt ">
       <div class="panel panel-info hostUnit">
         <div class="panel-heading">
-          <h4>{{hostDetail.hostIp}}</h4>
+          <h4>{{hostGeneral.hostIp}}</h4>
         </div>
         <div class="panel-body">
           <div class="col-md-12 text-center" style="height:36px; border: 1px solid whitesmoke;">
-            <button class="btn btn-default" routerLink="/hostDetail/{{hostDetail.hostIp}}">详情查看</button>
+            <button class="btn btn-default" routerLink="/hostDetail/{{hostGeneral.hostIp}}">详情查看</button>
           </div>
         </div>
       </div>

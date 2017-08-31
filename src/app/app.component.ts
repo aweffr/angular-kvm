@@ -12,10 +12,15 @@ export class AppComponent implements OnInit {
   indexInfo: IndexInfo;
 
   constructor(private getIndexInfoService: GetIndexInfoService) { }
-  
-  ngOnInit() {
+
+  update(): void {
     this.getIndexInfoService.getIndexInfo()
       .then(indexInfo => this.indexInfo = indexInfo);
+  }
+
+  ngOnInit() {
+    this.update();
+    setInterval(this.update, 60 * 1000);
   }
 
 }

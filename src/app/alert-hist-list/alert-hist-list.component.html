@@ -1,4 +1,4 @@
-<ul class="alertHistList">
+<!-- <ul class="alertHistList">
   <div *ngFor="let alertDetail of alertHistList">
     <div class="col-lg-6 col-md-12">
       <div class="panel panel-default panel-heading" (click)="showDetail(alertDetail)" style="background-color:cadetblue">
@@ -8,6 +8,11 @@
       </div>
     </div>
   </div>
-</ul>
-<p>
-  <app-alert-detail [alertDetail]="selectedAlertDetail"></app-alert-detail>
+</ul> -->
+<div class="alertHistList">
+    <div *ngFor="let alertDetail of alertHistList">
+        <app-alert-detail [alertDetail]="alertDetail"></app-alert-detail>
+    </div>
+</div>
+<p></p>
+<app-alert-detail [alertDetail]="selectedAlertDetail"></app-alert-detail>

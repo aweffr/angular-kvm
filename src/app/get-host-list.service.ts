@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { HttpParams } from '@angular/common/http';
 import { HostDetail } from './host-detail';
+import { HostGeneral } from './host-general';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -13,15 +14,15 @@ export class GetHostListService {
 
   constructor(private http: Http) { }
 
-  getHostList(): Promise<string[]> {
+  getHostList(): Promise<HostGeneral[]> {
     return this.http.get(this.hostListUrl)
       .toPromise()
-      .then(response => response.json().data as string[])
+      .then(response => response.json().data as HostGeneral[])
       .catch(this.handleError);
   }
 
   getHostDetail(hostIP: string): Promise<HostDetail> {
-    return this.http.get(this.hostDetailUrl, { params: {'hostIP': hostIP} })
+    return this.http.get(this.hostDetailUrl, { params: { 'hostIP': hostIP } })
       .toPromise()
       .then(response => response.json().data as HostDetail)
       .catch(this.handleError);
